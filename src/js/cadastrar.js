@@ -1,15 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-            // Seletor movido para dentro do evento DOMContentLoaded
             const filmeForm = document.getElementById('filmeForm');
 
-            // Adiciona um ouvinte de evento para o envio do formulário
             filmeForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Impede o envio padrão do formulário
+                event.preventDefault(); 
 
-                // Obtém os elementos do formulário
                 const { nome, duracao, ano, genero } = filmeForm.elements;
-
-                // Cria o objeto filme com os valores dos campos
                 const filme = {
                     title: nome.value,
                     duration: duracao.value,
@@ -19,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log("Filme cadastrado:", filme);
                 
-        // Envia os dados do filme para o backend
+        
         fetch('http://localhost:3000/movies', {
             method: 'POST',
             headers: {
@@ -34,19 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            // Faça algo com os dados recebidos do backend, se necessário
+            
             filmeForm.style.display = 'none';
             
-            // Exibe a mensagem de sucesso
+          
             mensagemCadastro.style.display = 'block';
             setTimeout(function() {
-                // Esconde a mensagem após alguns segundos
+                
                 mensagemCadastro.style.display = 'none';
-            }, 5000); // Esconde após 5 segundos (5000 milissegundos)
+                window.location.href = window.location.href;
+            }, 5000); 
             console.log(data);
         })
         .catch(error => {
-            // Trate os erros que possam ocorrer durante a requisição
+            
             console.error('Erro:', error);
         });
     });
