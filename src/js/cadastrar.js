@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Cria o objeto filme com os valores dos campos
                 const filme = {
-                    nome: nome.value,
-                    duracao: duracao.value,
-                    ano: ano.value,
-                    genero: genero.value
+                    title: nome.value,
+                    duration: duracao.value,
+                    year: ano.value,
+                    genres: [genero.value]
                 };
 
                 console.log("Filme cadastrado:", filme);
