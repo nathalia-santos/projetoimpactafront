@@ -19,22 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log("Filme cadastrado:", filme);
                 
-                // Adicione aqui lógica adicional, como enviar os dados para o servidor ou limpar os campos do formulário
-                fetch('http://localhost:3000/movies')
-                    .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao fazer a requisição: ' + response.statusText);
-                        }
-                return response.json();
-                })
-            .then(data => {
-            // Faça algo com os dados recebidos do backend
-                console.log(data);
-                })
-            .catch(error => {
-    // Trate os erros que possam ocorrer durante a requisição
+        // Envia os dados do filme para o backend
+        fetch('http://localhost:3000/movies', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(filme)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao fazer a requisição: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Faça algo com os dados recebidos do backend, se necessário
+            console.log(data);
+        })
+        .catch(error => {
+            // Trate os erros que possam ocorrer durante a requisição
             console.error('Erro:', error);
-            });
-
-            });
         });
+    });
+});
