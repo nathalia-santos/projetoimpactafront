@@ -33,17 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('O filme já está cadastrado na lista.');
             }
             
-            filmeForm.style.display = 'none';
-            mensagemCadastro.textContent = "Cadastrado com sucesso!";
-            mensagemCadastro.style.color = 'green';
-            mensagemCadastro.style.display = 'block';
+              mensagemCadastro.style.display = 'none';
+              filmeForm.style.display = 'none';
+              mensagemCadastro.textContent = "Cadastrado com sucesso!";
+              mensagemCadastro.style.color = 'green';
+              mensagemCadastro.style.display = 'block';
 
             setTimeout(function() {
                 
                 mensagemCadastro.style.display = 'none';
                 window.location.href = window.location.href;
             }, 5000); 
-            console.log(data);
+           
         })
         .catch(error => {
             
