@@ -35,6 +35,14 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             // Faça algo com os dados recebidos do backend, se necessário
+            filmeForm.style.display = 'none';
+            
+            // Exibe a mensagem de sucesso
+            mensagemCadastro.style.display = 'block';
+            setTimeout(function() {
+                // Esconde a mensagem após alguns segundos
+                mensagemCadastro.style.display = 'none';
+            }, 5000); // Esconde após 5 segundos (5000 milissegundos)
             console.log(data);
         })
         .catch(error => {
