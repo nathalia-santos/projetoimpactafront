@@ -29,11 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
+            if (data.filmeJaCadastrado) {
+                throw new Error('O filme já está cadastrado na lista.');
+            }
             
             filmeForm.style.display = 'none';
-            
-          
+            mensagemCadastro.textContent = "Cadastrado com sucesso!";
+            mensagemCadastro.style.color = 'green';
             mensagemCadastro.style.display = 'block';
+
             setTimeout(function() {
                 
                 mensagemCadastro.style.display = 'none';
@@ -44,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             
             console.error('Erro:', error);
+            mensagemCadastro.textContent = error.message;
+            mensagemCadastro.style.color = 'red';
+            mensagemCadastro.style.display = 'block';
         });
     });
 });
