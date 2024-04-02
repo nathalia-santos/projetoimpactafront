@@ -1,0 +1,97 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, #FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
+  }
+  
+  .formCadastro {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px
+  }
+  
+  
+  .formCadastro h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+  }
+  
+  .formCadastro p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+  }
+  
+  .formCadastro input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+  }
+  
+  
+  .formCadastro input:focus {
+    border: 1px solid #f72585;
+  }
+  
+  .formCadastro label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .formCadastro a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+  }
+  
+  .formCadastro a:hover {
+    color: #f72585;
+  }
+  
+  .btn {
+    background: linear-gradient(90deg, #ff0019a3, #ffa42ca4, #ffff4193, #00801792, #0000f98e, #86007d97);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    color: #080101;
+    text-transform: uppercase;
+    font-style: oblique;
+    font-weight: 900;
+  
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    background-color: #ff0676;
+  
+  }
+
+  #mensagemCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d6d0d3;
+    background-color: #1f1818;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-top: 20px;
+  }
