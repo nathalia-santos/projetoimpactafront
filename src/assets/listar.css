@@ -29,12 +29,8 @@
 
 
   #lista-filmes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #d6d0d3;
-    background-color: #1f1818;
-    font-size: 2.5em;
-    font-weight: 600;
-    margin-top: 20px;
-  }
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 600px;
+}
