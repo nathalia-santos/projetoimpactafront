@@ -12,6 +12,8 @@
   .formLista {
     display: flex;
     flex-direction: column;
+    width: 300 px;
+    height: 300 px;
     background-color: #fff;
     border-radius: 7px;
     padding: 40px;
@@ -51,14 +53,14 @@
 }
 
 #lista-filmes li .titulo {
-    color: #fff;
+    color: #fff !important;
     font-size: 16px;
     font-weight: bold;
     padding: 10px;
 }
 
 #lista-filmes li .descricao {
-    color: #fff;
+    color: #fff !important;
     font-size: 14px;
     padding: 0 10px 10px;
 }
