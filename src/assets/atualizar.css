@@ -81,4 +81,10 @@
 
 #mensagem-sucesso {
     background-color: #28a745; 
+    font-size: large;
+}
+#imagem {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
 }

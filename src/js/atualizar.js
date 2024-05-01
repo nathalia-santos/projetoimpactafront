@@ -75,3 +75,7 @@ function atualizarFilme() {
         document.getElementById("mensagemSucesso").style.display = "none";
     });
 }
+function cancelarEdicao() {
+    window.location.href = "listar.html";
+}
+

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 filmeImage.width = 100; 
 
                 filmeInfo.innerHTML = "<p><strong>Título:</strong> " + filme.title + "</p>" +
+                                      "<p><strong>Duração:</strong> " + filme.duration + " minutos</p>" +
                                        "<p><strong>Ano:</strong> " + filme.year + "</p>" +
                                        "<p><strong>Gênero:</strong> " + filme.genres.join(', ') + "</p>";
                
@@ -48,7 +49,6 @@ function criarBotaoEditar(idFilme) {
     botaoEditar.classList.add('btn', 'btn-primary', 'me-2');
     return botaoEditar;
 }
-
 
 function criarBotaoExcluir(idFilme) {
     const botaoExcluir = document.createElement('button');
