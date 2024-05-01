@@ -18,10 +18,10 @@ function preencherFormulario(idFilme) {
             return response.json();
         })
         .then(data => {
-            document.getElementById("nome").value = data.nome;
-            document.getElementById("duracao").value = data.duracao;
-            document.getElementById("ano").value = data.ano;
-            document.getElementById("genero").value = data.genero;
+            document.getElementById("nome").value = data.title;
+            document.getElementById("duracao").value = data.duration;
+            document.getElementById("ano").value = data.year;
+            document.getElementById("genero").value = data.genres;
         })
         .catch(error => {
             console.error('Erro:', error);
