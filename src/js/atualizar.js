@@ -1,49 +1,29 @@
-function atualizarFilme() {
-    var nome = document.getElementById("nome").value;
-    var duracao = document.getElementById("duracao").value;
-    var ano = document.getElementById("ano").value;
-    var genero = document.getElementById("genero").value;
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const idFilme = urlParams.get('id');
 
-    fetch('http://localhost:3000/movies', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            nome: nome,
-            duracao: duracao,
-            ano: ano,
-            genero: genero
+    if (idFilme) {
+        preencherFormulario(idFilme);
+    } else {
+        console.error('ID do filme não encontrado na URL.');
+    }
+});
+
+function preencherFormulario(idFilme) {
+    fetch('http://localhost:3000/movies/' + idFilme)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao obter os dados do filme.');
+            }
+            return response.json();
         })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao atualizar o filme.');
-        }
-        return response.json();
-    })
-    .then(data => {
-
-        var mensagemSucesso = document.getElementById("mensagem-sucesso");
-        mensagemSucesso.innerText = "Filme atualizado com sucesso!";
-        mensagemSucesso.style.display = "block";
-
-
-        setTimeout(function() {
-            mensagemSucesso.style.display = "none";
-
-            window.location.href = "listar_filmes.html";
-        }, 3000); 
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        // Exibir mensagem de erro para o usuário
-        var mensagemErro = document.getElementById("mensagem-erro");
-        mensagemErro.innerText = "Erro ao atualizar o filme. Por favor, tente novamente.";
-        mensagemErro.style.display = "block";
-    });
-}
-
-function cancelarEdicao() {
-    window.location.href = "listar_filmes.html";
+        .then(data => {
+            document.getElementById("nome").value = data.nome;
+            document.getElementById("duracao").value = data.duracao;
+            document.getElementById("ano").value = data.ano;
+            document.getElementById("genero").value = data.genero;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 }
