@@ -29,7 +29,7 @@
     font-size: 2.3em;
   }
 
-  #atualizar-filme-form {
+  #editar-filme-form {
     max-width: 1000px;
     margin: 20px auto;
     display: grid;
@@ -37,15 +37,15 @@
     gap: 20px;
 }
 
-#atualizar-filme-form label {
+#editar-filme-form label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     color: #333;
 }
 
-#atualizar-filme-form input[type="text"],
-#atualizar-filme-form input[type="number"] {
+#editar-filme-form input[type="text"],
+#editar-filme-form input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -54,7 +54,7 @@
     box-sizing: border-box;
 }
 
-#atualizar-filme-form button {
+#editar-filme-form button {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -65,7 +65,7 @@
     transition: background-color 0.3s ease;
 }
 
-#atualizar-filme-form button:hover {
+#editar-filme-form button:hover {
     background-color: #0056b3;
 }
 
@@ -83,8 +83,4 @@
     background-color: #28a745; 
     font-size: large;
 }
-#imagem {
-    width: 100%;
-    height: auto;
-    border-radius: 8px 8px 0 0;
-}
+

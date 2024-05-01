@@ -23,7 +23,6 @@ function preencherFormulario(idFilme) {
             document.getElementById("ano").value = data.year;
             const generos = Array.isArray(data.genres) ? data.genres.map(gen => gen.name).join(', ') : data.genres;
             document.getElementById("genero").value = generos;
-            document.getElementById("imagem").src = data.imageUrl;
         })
         .catch(error => {
             console.error('Erro:', error);

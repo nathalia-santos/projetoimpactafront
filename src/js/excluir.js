@@ -14,7 +14,6 @@ function excluirFilme(idFilme) {
     })
     .then(data => {
         console.log('Filme excluído com sucesso:', data);
-        // Exibir mensagem de sucesso
         document.getElementById("mensagemSucesso").innerText = "Filme excluído com sucesso!";
         document.getElementById("mensagemSucesso").style.display = "block";
         document.getElementById("mensagemErro").style.display = "none";
