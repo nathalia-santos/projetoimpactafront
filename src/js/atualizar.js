@@ -1,5 +1,4 @@
 function atualizarFilme() {
-
     var nome = document.getElementById("nome").value;
     var duracao = document.getElementById("duracao").value;
     var ano = document.getElementById("ano").value;
@@ -24,18 +23,27 @@ function atualizarFilme() {
         return response.json();
     })
     .then(data => {
-        document.getElementById("mensagem-sucesso").style.display = "block";
+
+        var mensagemSucesso = document.getElementById("mensagem-sucesso");
+        mensagemSucesso.innerText = "Filme atualizado com sucesso!";
+        mensagemSucesso.style.display = "block";
+
+
         setTimeout(function() {
-            document.getElementById("mensagem-sucesso").style.display = "none";
-            window.location.href = "listar.html";
-        }, 10000); 
+            mensagemSucesso.style.display = "none";
+
+            window.location.href = "listar_filmes.html";
+        }, 3000); 
     })
     .catch(error => {
         console.error('Erro:', error);
-        document.getElementById("mensagem-erro").style.display = "block";
+        // Exibir mensagem de erro para o usuário
+        var mensagemErro = document.getElementById("mensagem-erro");
+        mensagemErro.innerText = "Erro ao atualizar o filme. Por favor, tente novamente.";
+        mensagemErro.style.display = "block";
     });
 }
 
-function cancelarAtualizacao() {
-    window.location.href = "listar.html";
+function cancelarEdicao() {
+    window.location.href = "listar_filmes.html";
 }
