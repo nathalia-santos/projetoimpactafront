@@ -50,12 +50,12 @@ function criarBotaoEditar(idFilme) {
     return botaoEditar;
 }
 
-// function criarBotaoExcluir(idFilme) {
-//     const botaoExcluir = document.createElement('button');
-//     botaoExcluir.innerText = 'Excluir';
-//     botaoExcluir.classList.add('btn', 'btn-danger');
-//     botaoExcluir.addEventListener('click', function() {
-//         excluirFilme(idFilme);
-//     });
-//     return botaoExcluir;
-// }
+function criarBotaoExcluir(idFilme) {
+    const botaoExcluir = document.createElement('button');
+    botaoExcluir.innerText = 'Excluir';
+    botaoExcluir.classList.add('btn', 'btn-danger');
+    botaoExcluir.addEventListener('click', function() {
+        excluirFilme(idFilme);
+    });
+    return botaoExcluir;
+}
