@@ -12,8 +12,8 @@
   .formLista {
     display: flex;
     flex-direction: column;
-    width: 300 px;
-    height: 300 px;
+    width: 500 px;
+    height: 200 px;
     background-color: #fff;
     border-radius: 7px;
     padding: 40px;
@@ -40,7 +40,7 @@
 }
 
 #lista-filmes li {
-    background-color: #333;
+    background-color: #eceaea;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -53,14 +53,14 @@
 }
 
 #lista-filmes li .titulo {
-    color: #fff !important;
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     padding: 10px;
 }
 
 #lista-filmes li .descricao {
-    color: #fff !important;
+    color: #fff ;
     font-size: 14px;
     padding: 0 10px 10px;
 }
