@@ -23,17 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                        "<p><strong>Ano:</strong> " + filme.year + "</p>" +
                                        "<p><strong>Gênero:</strong> " + filme.genres.join(', ') + "</p>";
                
-                const botaoEditar = document.createElement('a');
-                botaoEditar.innerText = 'Editar';
-                botaoEditar.href = "editar_filme.html?id=" + filme.id;
-                botaoEditar.classList.add('btn', 'btn-primary', 'me-2');
-
-                const botaoExcluir = document.createElement('button');
-                botaoExcluir.innerText = 'Excluir';
-                botaoExcluir.classList.add('btn', 'btn-danger');
-                botaoExcluir.addEventListener('click', function() {
-                excluirFilme(filme.id);
-            });
+                const botaoEditar = criarBotaoEditar(filme.id);
+                const botaoExcluir = criarBotaoExcluir(filme.id);
+                       
+                filmeInfo.appendChild(botaoEditar);
+                filmeInfo.appendChild(botaoExcluir);
 
 
                 listItem.appendChild(filmeImage);
@@ -45,3 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro:', error);
         });
 });
+
+
+function criarBotaoEditar(idFilme) {
+    const botaoEditar = document.createElement('a');
+    botaoEditar.innerText = 'Editar';
+    botaoEditar.href = "editar_filme.html?id=" + idFilme;
+    botaoEditar.classList.add('btn', 'btn-primary', 'me-2');
+    return botaoEditar;
+}
+
+
+function criarBotaoExcluir(idFilme) {
+    const botaoExcluir = document.createElement('button');
+    botaoExcluir.innerText = 'Excluir';
+    botaoExcluir.classList.add('btn', 'btn-danger');
+    botaoExcluir.addEventListener('click', function() {
+        excluirFilme(idFilme);
+    });
+    return botaoExcluir;
+}
