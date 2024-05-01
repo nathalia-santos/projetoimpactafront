@@ -14,6 +14,9 @@
         <form id="editar-filme-form" class="formLista">
             <h1>Editar Filme</h1>
 
+            <label for="imagem">Imagem do Filme:</label>
+            <img id="imagem" src="" alt="Imagem do Filme">
+
             <label for="nome">Nome do Filme:</label>
             <input type="text" id="nome" name="nome" value="Nome do Filme Atual"><br><br>
 
@@ -31,6 +34,8 @@
 
             <button type="button" onclick="atualizarFilme()">Atualizar</button>
             <button type="button" onclick="cancelarEdicao()">Cancelar</button>
+            <div id="mensagemSucesso" style="display: none; color: green;">Filme atualizado com sucesso!</div>
+            <div id="mensagemErro" style="display: none; color: red;">Erro ao atualizar o filme. Por favor, tente novamente.</div>
         </form>
     </div>
 

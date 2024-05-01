@@ -21,8 +21,9 @@ function preencherFormulario(idFilme) {
             document.getElementById("nome").value = data.title;
             document.getElementById("duracao").value = data.duration;
             document.getElementById("ano").value = data.year;
-            const generos = Array.isArray(data.genres) ? data.genres.join(', ') : data.genres;
+            const generos = Array.isArray(data.genres) ? data.genres.map(gen => gen.name).join(', ') : data.genres;
             document.getElementById("genero").value = generos;
+            document.getElementById("imagem").src = data.imageUrl;
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -62,10 +63,15 @@ function atualizarFilme() {
     })
     .then(data => {
         console.log('Filme atualizado com sucesso:', data);
-        window.location.href = "listar_filmes.html";
+        document.getElementById("mensagemSucesso").style.display = "block";
+        document.getElementById("mensagemErro").style.display = "none";
+        setTimeout(function() {
+            window.location.href = "listar.html";
+        }, 3000);
     })
     .catch(error => {
         console.error('Erro:', error);
-        alert('Erro ao atualizar o filme. Por favor, tente novamente.');
+        document.getElementById("mensagemErro").style.display = "block";
+        document.getElementById("mensagemSucesso").style.display = "none";
     });
 }
