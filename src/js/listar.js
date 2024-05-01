@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function criarBotaoEditar(idFilme) {
     const botaoEditar = document.createElement('a');
     botaoEditar.innerText = 'Editar';
-    botaoEditar.href = "editar_filme.html?id=" + idFilme;
+    botaoEditar.href = "atualizar.html.html?id=" + idFilme;
     botaoEditar.classList.add('btn', 'btn-primary', 'me-2');
     return botaoEditar;
 }
