@@ -29,38 +29,56 @@
     font-size: 2.3em;
   }
 
-  #lista-filmes {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px auto;
+  #atualizar-filme-form {
     max-width: 1000px;
+    margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
-#lista-filmes li {
-    background-color: #333;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#lista-filmes li img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px 8px 0 0;
-}
-
-#lista-filmes li .titulo {
-    color: #fff !important;
-    font-size: 16px;
+#atualizar-filme-form label {
+    display: block;
     font-weight: bold;
-    padding: 10px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-#lista-filmes li .descricao {
-    color: #fff !important;
-    font-size: 14px;
-    padding: 0 10px 10px;
+#atualizar-filme-form input[type="text"],
+#atualizar-filme-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#atualizar-filme-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#atualizar-filme-form button:hover {
+    background-color: #0056b3;
+}
+
+#mensagem-erro,
+#mensagem-sucesso {
+    color: #fff;
+    background-color: #dc3545; 
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none; 
+}
+
+#mensagem-sucesso {
+    background-color: #28a745; 
 }
