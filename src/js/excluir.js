@@ -3,21 +3,24 @@ function excluirFilme(idFilme) {
         return;
     }
 
+    console.log('Iniciando exclusão do filme com ID:', idFilme);
+
     fetch('http://localhost:3000/movies/' + idFilme, {
         method: 'DELETE'
     })
     .then(response => {
+        console.log('Resposta recebida do servidor:', response);
         if (!response.ok) {
             throw new Error('Erro ao excluir o filme.');
         }
-        // Se a resposta for 204 No Content, retorna uma Promise resolvida com null
         if (response.status === 204) {
+            console.log('Nenhum conteúdo retornado.');
             return null;
         }
         return response.json();
     })
     .then(data => {
-        console.log('Filme excluído com sucesso:', data);
+        console.log('Dados recebidos:', data);
 
         const mensagemSucesso = document.getElementById("mensagemSucesso");
         const mensagemErro = document.getElementById("mensagemErro");
