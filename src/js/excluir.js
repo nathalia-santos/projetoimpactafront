@@ -1,4 +1,4 @@
-function excluirFilme(idFilme) {
+async function excluirFilme(idFilme) {
     if (!confirm("Tem certeza que deseja excluir este filme?")) {
         return;
     }
