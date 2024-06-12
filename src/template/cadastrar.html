@@ -16,14 +16,17 @@
             <p>Digite os dados do filme no campo abaixo</p>
             <label for="nome">Nome do Filme</label>
             <input type="text" id="nome" placeholder="Digite o nome do filme" autofocus="true" /> 
-            <label for="duracao">Duração(em minutos)</label>
+            <label for="duracao">Duração (em minutos)</label>
             <input type="number" id="duracao" placeholder="Digite a duração do filme" /> 
             <label for="ano">Ano de Lançamento</label>
             <input type="number" id="ano" placeholder="Digite o ano de lançamento do filme" /> 
             <label for="genero">Gênero do Filme</label>
             <input type="text" id="genero" placeholder="Digite o gênero do filme" /> 
             <br>
-            <input type="submit" value="Cadastrar" class="btn" />
+            <input type="submit" value="Cadastrar" class="btn btn-primary" />
+
+            <!-- Novo botão para a página de listagem -->
+            <a href="listar.html" class="btn btn-secondary mt-3">Ir para a Listagem</a>
         </form>
         <div id="mensagemCadastro" style="display: none;"></div>
     </div>

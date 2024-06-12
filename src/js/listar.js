@@ -56,57 +56,58 @@ function criarBotaoExcluir(idFilme) {
     botaoExcluir.classList.add('btn', 'btn-danger', 'delete-btn');
     botaoExcluir.addEventListener('click', async event =>{
         if(event.target.classList.contains("delete-btn")){
-            // const id = parseInt(event.target.dataset.id, 10);
-            if(confirm(`Tem certeza que deseja excluir o item ${idFilme}?`)){
-                await deleteItem(idFilme);
+             if(confirm(`Tem certeza que deseja excluir o item ${idFilme}?`)){
+                await fetch(`http://localhost:3000/movies/delete/${idFilme}`, { 
+                    method: 'DELETE',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                      } 
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erro ao excluir o item.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Dados recebidos:', data);
+                
+                        const mensagemSucesso = document.getElementById("mensagemSucesso");
+                        const mensagemErro = document.getElementById("mensagemErro");
+                
+                        if (mensagemSucesso) {
+                            mensagemSucesso.innerText = "Filme excluído com sucesso!";
+                            mensagemSucesso.style.display = "block";
+                        }
+                
+                        if (mensagemErro) {
+                            mensagemErro.style.display = "none";
+                        }
+                
+                        setTimeout(function() {
+                            window.location.href = "listar.html";
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                
+                        const mensagemErro = document.getElementById("mensagemErro");
+                        const mensagemSucesso = document.getElementById("mensagemSucesso");
+                
+                        if (mensagemErro) {
+                            mensagemErro.innerText = "Erro ao excluir o filme. Por favor, tente novamente.";
+                            mensagemErro.style.display = "block";
+                        }
+                
+                        if (mensagemSucesso) {
+                            mensagemSucesso.style.display = "none";
+                        }
+                    });
+               
+              
             }
         }
     })
 
     return botaoExcluir;
-}
-
-async function deleteItem(id) {
-    // Chamada ao backend para excluir o item
-    fetch(`http://localhost:3000/movies/${id}`, { method: 'DELETE' })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao excluir o item.');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Dados recebidos:', data);
-    
-            const mensagemSucesso = document.getElementById("mensagemSucesso");
-            const mensagemErro = document.getElementById("mensagemErro");
-    
-            if (mensagemSucesso) {
-                mensagemSucesso.innerText = "Filme excluído com sucesso!";
-                mensagemSucesso.style.display = "block";
-            }
-    
-            if (mensagemErro) {
-                mensagemErro.style.display = "none";
-            }
-    
-            setTimeout(function() {
-                window.location.href = "listar.html";
-            }, 3000);
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-    
-            const mensagemErro = document.getElementById("mensagemErro");
-            const mensagemSucesso = document.getElementById("mensagemSucesso");
-    
-            if (mensagemErro) {
-                mensagemErro.innerText = "Erro ao excluir o filme. Por favor, tente novamente.";
-                mensagemErro.style.display = "block";
-            }
-    
-            if (mensagemSucesso) {
-                mensagemSucesso.style.display = "none";
-            }
-        });
 }
